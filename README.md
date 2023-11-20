@@ -1,8 +1,6 @@
 # NOTE~
 
-## 興趣
-梗圖!
-## 圖片支援~
+## 吉祥物~
 ![皮卡啾] https://static.wixstatic.com/media/0fc723_4b961669e1a74fd8b64f194d90b6bcb2~mv2.gif
 
 
