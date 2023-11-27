@@ -56,4 +56,62 @@
 
        }
 ```
+## c# 倒數計時器
+```
+
+public partial class Form1 : Form
+    {
+        System.Timers.Timer t;
+        int h, m, s;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            t = new System.Timers.Timer();
+            t.Interval = 1000;/// 間隔1000=1秒
+            t.Elapsed += OnTimeEvent;
+        }
+
+        private void OnTimeEvent(object? sender, ElapsedEventArgs e)
+        {
+            Invoke(new Action(() => ///=>來接陳述塊 並用{}把事件包起來
+            {
+                s += 1;
+                if(s==60)
+                {
+                    s = 0;
+                    m += 1;
+                }
+
+                if(m==60)
+                {
+                    m = 0;
+                    h += 1;
+                }
+                textBox1.Text=String.Format("{0}:{1}:{2}", h.ToString().PadLeft(2,'0'), m.ToString().PadLeft(2, '0'),s.ToString().PadLeft(2,'0'));///PadLeft代表要填充字符，代表希望最終長度是2字符'0'表示為指定填充的字符
+            }));
+            ///throw new NotImplementedException();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            t.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            t.Stop();
+        }
+  }
+}
+```
+
+
+
+
+
+
 
